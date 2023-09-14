@@ -1,0 +1,26 @@
+[package]
+name = "provers"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ark-circom = { git = "https://github.com/rally-dfs/circom-compat.git" }
+ark-bn254 = { version = "=0.4.0" }
+ark-groth16 = { version = "=0.4.0", default-features = false, features = ["parallel"] }
+ark-std = { version = "=0.4.0", default-features = false, features = ["parallel"] }
+ark-crypto-primitives = { version = "=0.4.0" }
+ark-relations = { version = "=0.4.0", default-features = false }
+ark-ff = { version = "=0.4.1", default-features = false, features = ["parallel", "asm"] }
+ark-ec = { version = "=0.4.1", default-features = false, features = ["parallel"] }
+num-bigint = { version = "=0.4.3", default-features = false, features = ["rand"] }
+num-traits = { version = "=0.2.15", default-features = false }
+libc = "0.2"
+
+[features]
+default = ["circom-2"]
+circom-2 = []
+
+[lib]
+crate-type = ["staticlib"]
